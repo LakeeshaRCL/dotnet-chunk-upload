@@ -128,6 +128,8 @@ public class StorageService : IStorageService
                         // delete chunk after merge
                         File.Delete(chunk);
                     }
+                // removing file meta from the manager
+                chunkUploadManager.RemoveUploadingFileAsChunkMeta(uploadChunkRequest.uploadId);
                 return new UploadFileResponse(fileMeta.GetKey());
             }
             else
